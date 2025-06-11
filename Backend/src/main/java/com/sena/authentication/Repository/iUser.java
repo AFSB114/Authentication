@@ -6,8 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface iUser extends JpaRepository<User, Integer> {
+    @Query("select u from users u where u.name = :name")
+    Optional<User> findByName(String name);
+
     @Query("select u from users u where u.status = 'ACTIVE'")
     List<User> getActiveUsers();
 

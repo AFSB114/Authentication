@@ -1,6 +1,5 @@
 package com.sena.authentication.controller;
 
-import com.sena.authentication.DTO.userLogDTO;
 import com.sena.authentication.Model.User;
 import com.sena.authentication.Service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/user")
-class UserController {
+@RequestMapping("/api/v1/public/user")
+class UserPublicController {
 
     private final UserService userService;
 
-    UserController(UserService userService) {
+    public UserPublicController(UserService userService) {
         this.userService = userService;
     }
 
@@ -36,9 +35,8 @@ class UserController {
         return ResponseEntity.ok(res);
     }
 
-    @PostMapping("/log")
-    public ResponseEntity<?> log(@RequestBody userLogDTO userLogDTO) {
+    @GetMapping("/login")
+    public ResponseEntity<String> log(@RequestBody String request) {
         return ResponseEntity.ok("well");
-
     }
 }
