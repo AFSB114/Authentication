@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +32,4 @@ public class Role {
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<RolePermissionPage> rolePermissionPages;
-
-    public Role(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
 }

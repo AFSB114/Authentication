@@ -1,7 +1,7 @@
 package com.sena.authentication.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sena.authentication.Definition.StatusUser;
+import com.sena.authentication.Enums.StatusUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -68,4 +68,5 @@ public class User implements UserDetails {
     public String getPassword() {
         return this.password;
     }
+
 }

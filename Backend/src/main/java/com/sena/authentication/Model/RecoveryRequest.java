@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class RecoveryRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +30,4 @@ public class RecoveryRequest {
 
     @Column(name = "expires_at", nullable = false)
     private LocalDateTime expiresAt = createdAt.plusHours(3);
-
-    public RecoveryRequest(User user, String token) {
-        this.user = user;
-        this.token = token;
-    }
 }

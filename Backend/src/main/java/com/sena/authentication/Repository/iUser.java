@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface iUser extends JpaRepository<User, Integer> {
+
+    User findUserByName(String name);
+
     @Query("select u from users u where u.name = :name")
     Optional<User> findByName(String name);
 
